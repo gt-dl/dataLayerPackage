@@ -8,7 +8,7 @@
 - Executar no terminal
 
 ```bash
-npm install @macielsds/datalayerpackage
+npm install @vinicius.diniz/datalayerpackage
 ```
 
 ## Como usar o pacote
