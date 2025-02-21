@@ -1,0 +1,27 @@
+{
+  "name": "datalayer-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+      "dist"
+  ],
+  "keywords": [],
+  "author": "Vinicius Diniz (vinicius.diniz@somagrupo.com.br)",
+  "scripts": {
+    "build": "tsup",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/macielsds/dataLayerPackage.git"
+  }
+}
