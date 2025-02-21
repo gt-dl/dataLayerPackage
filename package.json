@@ -1,12 +1,12 @@
 {
   "name": "@vinicius.diniz/datalayerpackage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-      "dist"
+    "dist"
   ],
   "keywords": [],
   "contributors": [
@@ -19,12 +19,12 @@
       "email": "fernando.vinicius@somagrupo.com.br"
     },
     {
-    "name": "Yan Carvalhal",
-    "email": "yan.carvalhal@somagrupo.com.br"
+      "name": "Yan Carvalhal",
+      "email": "yan.carvalhal@somagrupo.com.br"
     },
     {
-    "name": "André Menezes",
-    "email": "andre.menezes@farmrio.com"
+      "name": "André Menezes",
+      "email": "andre.menezes@farmrio.com"
     }
   ],
   "scripts": {
