@@ -9,7 +9,20 @@
       "dist"
   ],
   "keywords": [],
-  "author": "Vinicius Diniz (vinicius.diniz@somagrupo.com.br)",
+  "contributors": [
+    {
+      "name": "Vinicius Diniz",
+      "email": "vinicius.diniz@somagrupo.com.br"
+    },
+    {
+    "name": "Yan Carvalhau",
+    "email": "yan.carvalhau@somagrupo.com.br"
+    },
+    {
+    "name": "André Menezes",
+    "email": "andre.menezes@somagrupo.com.br"
+    }
+  ],
   "scripts": {
     "build": "tsup",
     "test": "echo \"Error: no test specified\" && exit 1"
