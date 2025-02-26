@@ -1,5 +1,5 @@
 export type EventTypes =
-    'filtro'
+    'filter'
     | 'pageview'
     | 'click'
     | 'purchase'
