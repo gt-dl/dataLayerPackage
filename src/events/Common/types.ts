@@ -75,6 +75,6 @@ export type Item = {
     quantity: number
 }
 
-export type PaymentType = 'Pix' | 'Cartão de crédito' | 'Boleto'
+export type PaymentType = 'Pix à vista' | 'Pix parcelado' | 'Cartão de crédito' | 'Boleto' | 'Google Pay'
 
 export type CouponTypeName = 'Cupom' | 'Código de vendedor'
