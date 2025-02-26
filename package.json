@@ -4,7 +4,16 @@
   "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types.d.ts",
+  "hooks": "./dist/hooks.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./hooks": "./dist/hooks.d.ts",
+    "./types": "./dist/types.d.ts"
+  },
   "files": [
     "dist"
   ],
