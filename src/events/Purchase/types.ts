@@ -7,7 +7,7 @@ export type PurchaseProps = {
     sale_coupon_name?: string
     coupon_name?: string
     total_discount: number
-    subtotal: 0
+    subtotal: number
     shipping: number
     currency: CurrencyName
     value: number
