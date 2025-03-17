@@ -3,7 +3,6 @@ import { ZipCodeSearchProps } from "./types";
 
 /**
  * @param shippings Array de objeto contendo informação de cada shipping
- * @param shippings[].local Página ou componente de onde o usuário fez a busca do CEP
  * @param shippings[].shipping_tier Tipo de envio: "Express", etc
  * @param shippings[].shipping Valor do frete
  * @param shippings[].delivery_time Dias até a entrega do produto
@@ -14,7 +13,7 @@ export function sendZipCodeSearchEventToDataLayer(
     shippings: ZipCodeSearchProps
 ) {
     sendEventToDataLayer<ZipCodeSearchProps>({
-        event: 'buscar_cep',
+        event: 'search_zipcode',
         ...shippings
     })
 }
