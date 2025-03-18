@@ -3,7 +3,7 @@ import { AddCouponProps } from "./types";
 
 export function sendAddCouponEventToDataLayer(couponProps: AddCouponProps) {
     sendEventToDataLayer<AddCouponProps>({
-        event: 'adicionar_cupom',
+        event: 'add_coupon',
         ...couponProps
     })
 }

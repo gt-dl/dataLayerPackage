@@ -5,7 +5,7 @@ export type EventTypes =
     | 'purchase'
     | 'sign_up'
     | 'login'
-    | 'buscar_cep'
+    | 'search_zipcode'
     | 'notify_me'
     | 'generate_lead'
     | 'share'
@@ -20,7 +20,7 @@ export type EventTypes =
     | `error_${string}`
     | 'select_item'
     | 'select_promotion'
-    | 'adicionar_cupom'
+    | 'add_coupon'
     | 'add_to_cart'
     | 'add_to_wishlist'
     | 'begin_checkout'
