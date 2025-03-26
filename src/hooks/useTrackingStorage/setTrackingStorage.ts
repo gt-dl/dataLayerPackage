@@ -1,8 +1,8 @@
-import type { TrackingProps, TrackingStorageProps } from './types';
-import { getAllTrackingStorage } from './utils';
+import { TrackingProps } from '../../types';
+import type { AccountUrl, ProductId, StoreId } from './types';
+import { getMergedTrackingStorage, updateOrderFormTracking } from './utils';
 
 /**
- * @param productId ID do produto que quer salvar os dados
  * @param trackingData Objeto com os dados desse produto
  * @param trackingData.index Posição do produto na lista em que ele estava quando foi clicado ou adicionado ao carrinho
  * @param trackingData.creative_name Tipo de componente em que o usuário clicou antes de adicionar esse produto ao carrinho ('banner', "carrossel", "stories")
@@ -11,29 +11,41 @@ import { getAllTrackingStorage } from './utils';
  * @param trackingData.item_list_name Nome da PDC onde o usuário clicou antes de adicionar esse produto ao carrinho
  * @param trackingData.promotion_id URL para onde o componente clicado aponta (o mesmo componente de creative_name)
  * @param trackingData.promotion_name Texto principal presente dentro do componente (o mesmo componente de creative_name)
+ * @param storeId ID da loja. Ex.: "{storeId}.vtexcommercestable.com.br"
+ * @param productId ID do produto que quer salvar os dados. Se não for passado, será salvo nos dados temporários
+ * @param orderFormId ID do orderForm. Se não for passado, será salvo apenas nos dados temporários e não no orderForm
  */
-export function setTrackingStorage(
-  productId: string,
-  trackingData: TrackingProps
+export async function setTrackingStorage(
+  trackingData: TrackingProps,
+  storeId: StoreId,
+  accountUrl: AccountUrl,
+  productId: ProductId = 'temp',
+  orderFormId = '',
 ) {
   if (typeof window === 'undefined') return;
 
-  const allTrackingStorage = getAllTrackingStorage() || {};
+  const mergedTracking = await getMergedTrackingStorage(
+    orderFormId,
+    accountUrl,
+  );
 
-  const productCurrentTracking = allTrackingStorage.hasOwnProperty(productId)
-    ? allTrackingStorage[productId]
+  const mergedProductTracking = mergedTracking.hasOwnProperty(productId)
+    ? mergedTracking[productId]
     : {};
 
-  const newTracking: TrackingStorageProps = {
-    ...allTrackingStorage,
+  const newTracking = {
+    ...mergedTracking,
     [productId]: {
-      ...productCurrentTracking,
-      ...trackingData,
+      ...mergedProductTracking,
+      ...trackingData
     },
-  };
+  }
 
-  window.sessionStorage.setItem(
-    "tracking-storage",
-    JSON.stringify(newTracking)
-  );
+  const newTrackingJSON = JSON.stringify(newTracking);
+
+  window.sessionStorage.setItem("tracking-storage", newTrackingJSON);
+
+  if (orderFormId !== '') {
+    updateOrderFormTracking(storeId, orderFormId, newTrackingJSON);
+  }
 }
