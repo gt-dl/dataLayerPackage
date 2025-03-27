@@ -1,29 +1,20 @@
-import { AccountUrl, ProductId } from './types';
-import { getTrackingFromOrderForm, getTrackingFromSessionStorage } from './utils';
+import { ProductId } from './types';
+import { getAllTrackingFromSessionStorage } from './utils';
 
 /**
+ * Usado para pegar dados de tracking de algum produto, ou os dados temporários
+ * 
  * @param productId ID do produto que se quer pegar os dados ou 'temp'. Se não for passado, retorna os dados temporários
  * @returns Dados de tracking do produto ou temporários
  */
-export async function getTrackingStorageByProductId(
-  orderFormId: string,
-  accountUrl: AccountUrl,
+export function getTrackingStorageByProductId(
   productId: ProductId = 'temp'
 ) {
-  const trackingFromSessionStorage = getTrackingFromSessionStorage();
+  const tracking = getAllTrackingFromSessionStorage();
 
-  if (trackingFromSessionStorage.hasOwnProperty(productId)) {
-    return trackingFromSessionStorage[productId];
+  if (tracking.hasOwnProperty(productId)) {
+    return tracking[productId];
   }
 
-  const trackingFromOrderForm = await getTrackingFromOrderForm(
-    orderFormId,
-    accountUrl
-  );
-
-  if (trackingFromOrderForm.hasOwnProperty(productId)) {
-    return trackingFromOrderForm[productId];
-  }
-
-  return {}
+  return {};
 }
