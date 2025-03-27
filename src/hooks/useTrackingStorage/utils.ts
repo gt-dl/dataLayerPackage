@@ -65,10 +65,34 @@ export async function getMergedTrackingStorage(
     accountUrl
   );
 
-  const trackingMerged: TrackingStorageProps = mergeObjects(
-    trackingFromSessionStorage,
-    trackingFromOrderForm
-  )
+  const trackingMerged: TrackingStorageProps = mergeObjects({
+    sessionStorageObject: trackingFromSessionStorage,
+    orderFormObject: trackingFromOrderForm
+  })
 
   return trackingMerged;
+}
+
+function mergeObjects({
+  sessionStorageObject,
+  orderFormObject,
+}: {
+  sessionStorageObject: TrackingStorageProps;
+  orderFormObject: TrackingStorageProps;
+}) {
+  const merged: TrackingStorageProps = {};
+
+  const keys = [ ...new Set([
+    ...Object.keys(sessionStorageObject),
+    ...Object.keys(orderFormObject),
+  ])];
+
+  keys.forEach(key => {
+    merged[key] = Object.assign(
+      orderFormObject[key] || {},
+      sessionStorageObject[key] || {}
+    );
+  });
+
+  return merged;
 }
