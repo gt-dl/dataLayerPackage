@@ -28,9 +28,9 @@ import type { PurchaseProps } from "./types";
  * @param ecommerce.items[].item_currency Moeda do preço do produto
  * @param ecommerce.items[].item_shipping_tier Tipo de envio do produto (o dado está tipado)
  * @param ecommerce.items[].creative_name Tipo de componente em que o usuário clicou antes de adicionar esse produto ao carrinho ("banner", "carrossel", "stories", "reloginho")
- * @param ecommerce.items[].creative_slot Identificador do componente que trouxe o usuário para esse produto. Ex.: "carrossel-home:3:2" É um carrossel da home, o terceiro da página, o segundo slide dele
+ * @param ecommerce.items[].creative_slot Identificador do criativo que trouxe o usuário para esse produto, e o índice do banner clicado separados por dois pontos. Ex.: "carrossel-home:2" É um carrossel da home, onde o segundo slide dele foi clicado
  * @param ecommerce.items[].promotion_id URL para onde o componente clicado aponta (o mesmo componente de creative_name)
- * @param ecommerce.items[].promotion_name Texto principal presente dentro do componente (o mesmo componente de creative_name)
+ * @param ecommerce.items[].promotion_name Texto principal (CTA) presente dentro do componente (o mesmo componente de creative_name)
  * @param ecommerce.items[].index Posição do produto na lista em que ele estava quando foi clicado ou adicionado ao carrinho
  * @param ecommerce.items[].price Preço cheio do produto sem desconto aplicado
  * @param ecommerce.items[].discount Desconto do produto. Exemplo, de R$ 1298 por R$ 1198, o discount é 100. Sem desconto, informar 0

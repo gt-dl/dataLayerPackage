@@ -1,3 +1,5 @@
+import { TrackingProps } from "../../hooks/useTrackingStorage/types";
+
 export type EventTypes =
   | 'filter'
   | 'pageview'
@@ -51,16 +53,6 @@ export type ShippingTierName =
   | 'Receba em casa: rápida'
   | 'Retire na loja: normal'
   | 'Retire na loja: rápida';
-
-export type TrackingProps = {
-  index?: number
-  creative_name?: CreativeName
-  creative_slot?: string
-  item_list_id?: string
-  item_list_name?: string
-  promotion_id?: string
-  promotion_name?: string
-};
 
 export type Item = {
   item_id: string
