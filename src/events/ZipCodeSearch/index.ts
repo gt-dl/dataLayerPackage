@@ -1,5 +1,5 @@
 import { sendEventToDataLayer } from "../Common";
-import { ZipCodeSearchProps } from "./types";
+import type { ZipCodeSearchProps } from "./types";
 
 /**
  * @param shippings Array de objeto contendo informação de cada shipping

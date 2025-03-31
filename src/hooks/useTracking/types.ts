@@ -1,4 +1,4 @@
-import { CreativeName } from '../../types';
+import { CreativeName } from "../../events/Common/types";
 
 export type ProductId = string | 'temp';
 export type TrackingType = 'banner' | 'list';
@@ -16,5 +16,5 @@ export type ListTrackingProps = {
   item_list_name?: string;
 };
 
-export type TrackingProps = BannerTrackingProps & ListTrackingProps;
-export type TrackingStorageProps = Record<ProductId, TrackingProps>;
+export type TrackingProductProps = BannerTrackingProps & ListTrackingProps;
+export type TrackingProps = Record<ProductId, TrackingProductProps>;

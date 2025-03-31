@@ -1,1 +1,1 @@
-export * from './hooks/useTrackingStorage'
+export * from './hooks/useTracking'

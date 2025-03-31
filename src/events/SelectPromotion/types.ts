@@ -1,4 +1,4 @@
-import { CreativeName } from '../../types';
+import { CreativeName } from "../Common/types";
 
 export type SelectPromotionProps = {
   ecommerce: {

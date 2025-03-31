@@ -1,4 +1,4 @@
-import { TrackingProps } from '../../hooks/useTrackingStorage/types';
+import { TrackingProductProps } from '../../hooks/useTracking/types';
 
 export type EventTypes =
   | 'filter'
@@ -63,7 +63,7 @@ export type Item = {
   price: number;
   discount: number;
   quantity: number;
-} & TrackingProps;
+} & TrackingProductProps;
 
 export type PaymentType =
   | 'Pix à vista'

@@ -2,12 +2,12 @@ import type {
   BannerTrackingProps,
   ListTrackingProps,
   ProductId,
-  TrackingProps,
+  TrackingProductProps,
   TrackingType,
 } from './types';
 import { getAllTracking, removeProps, setCookie } from './utils';
 
-function removeOldProps(trackingProps: TrackingProps, type: TrackingType) {
+function removeOldProps(trackingProps: TrackingProductProps, type: TrackingType) {
   const propsToRemoveMap: {
     banner: (keyof BannerTrackingProps)[];
     list: (keyof ListTrackingProps)[];
@@ -30,7 +30,7 @@ function removeOldProps(trackingProps: TrackingProps, type: TrackingType) {
 /**
  * Usado para inserir dados de algum produto, ou dados temporários, no tracking
  *
- * @param type "banner" ou "list". Marque "banner" se o evento disparou em um banner, carrossel de banner, stores ou banner com reloginho, nesse caso só aceitará 4 valores no objeto de dados: "promotion_name", "promotion_id", "creative_name" e "creative_slot". Marque "list" se o evento disparou em uma lista de produtos, nesse caso só aceitará 3 valores: "index", "item_list_id" e "item_list_name"
+ * @param type "banner" ou "list". Marque "banner" se o evento disparou em um banner, carrossel de banner, stories ou banner com reloginho, nesse caso só aceitará 4 valores no objeto de dados: "promotion_name", "promotion_id", "creative_name" e "creative_slot". Marque "list" se o evento disparou em uma lista de produtos, nesse caso só aceitará 3 valores: "index", "item_list_id" e "item_list_name"
  * @param trackingData Objeto com os dados desse produto
  * @param trackingData.index Posição do produto na lista em que ele estava quando foi clicado ou adicionado ao carrinho
  * @param trackingData.item_list_id ID da lista onde o usuário clicou antes de adicionar esse produto ao carrinho. Por lista entendemos: carrossel de produtos da home, recomendações de produto da PDP, recomendações de produto do minicart, outras recomendações de produto. Ainda não temos definido o que é esse ID.
@@ -42,7 +42,7 @@ function removeOldProps(trackingProps: TrackingProps, type: TrackingType) {
  * @param productId ID do produto que se quer salvar os dados. Se não for passado, será salvo nos dados temporários
  * @param expirationDays Quantidade de dias que o cookie vai durar. O padrão é 7 dias. Usar valor -1 para excluir o cookie
  */
-export function setTrackingStorage<T extends TrackingType>(
+export function setTracking<T extends TrackingType>(
   type: T,
   trackingData: T extends 'banner' ? BannerTrackingProps : ListTrackingProps,
   productId: ProductId = 'temp'
@@ -63,5 +63,5 @@ export function setTrackingStorage<T extends TrackingType>(
     },
   };
 
-  setCookie('tracking-storage', JSON.stringify(newTracking));
+  setCookie('tracking', JSON.stringify(newTracking));
 }

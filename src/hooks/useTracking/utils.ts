@@ -1,10 +1,11 @@
-import type { TrackingStorageProps } from './types';
+import type { TrackingProps } from './types';
 
 export function getAllTracking() {
   if (typeof window === 'undefined') return {};
 
   const cookies = window.document.cookie
-    .split('; ')
+    .split(';')
+    .map(part => part.trim())
     .reduce((acc: Record<string, string>, cookie) => {
       const [name, ...rest] = cookie.split('=');
       const value = rest.join('=');
@@ -12,13 +13,11 @@ export function getAllTracking() {
       return acc;
     }, {});
 
-  const tracking = cookies['tracking-storage'];
-
-  const trackingObj: TrackingStorageProps = JSON.parse(tracking);
-  return trackingObj;
+  const tracking: TrackingProps = JSON.parse(cookies.tracking);
+  return tracking;
 }
 
-export function setCookie(key: string | 'tracking-storage', value: string) {
+export function setCookie(key: string | 'tracking', value: string) {
   if (typeof window === 'undefined') return;
 
   const expirationDays = 7;
