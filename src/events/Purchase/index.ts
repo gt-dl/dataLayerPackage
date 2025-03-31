@@ -21,8 +21,8 @@ import type { PurchaseProps } from "./types";
  * @param ecommerce.items[].item_brand Marca do produto
  * @param ecommerce.items[].item_category "Coleção" ou "Sale"
  * @param ecommerce.items[].item_category2 Segunda categoria do produto, ex.: "vestido", "calça", "camisa"
- * @param ecommerce.items[].item_list_name Nome da PDC onde o usuário clicou antes de adicionar esse produto ao carrinho
- * @param ecommerce.items[].item_list_id ID da PDC onde o usuário clicou antes de adicionar esse produto ao carrinho
+ * @param ecommerce.items[].item_list_name Nome da lista onde o usuário clicou antes de adicionar esse produto ao carrinho. Por lista entendemos: carrossel de produtos da home, recomendações de produto da PDP, recomendações de produto do minicart, outras recomendações de produto.
+ * @param ecommerce.items[].item_list_id ID da lista onde o usuário clicou antes de adicionar esse produto ao carrinho. Por lista entendemos: carrossel de produtos da home, recomendações de produto da PDP, recomendações de produto do minicart, outras recomendações de produto. Ainda não temos definido o que é esse ID.
  * @param ecommerce.items[].item_variant Cor do produto
  * @param ecommerce.items[].item_variant2 Tamanho do produto
  * @param ecommerce.items[].item_currency Moeda do preço do produto

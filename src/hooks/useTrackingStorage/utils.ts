@@ -43,3 +43,19 @@ export function setCookie(key: string | 'tracking-storage', value: string) {
 
   document.cookie = cookie;
 }
+
+export function removeProps<
+  ObjType extends Record<any, any>,
+  PropsToRemoveType extends keyof ObjType
+>(
+  obj: ObjType,
+  propsToRemove: PropsToRemoveType[]
+): Omit<ObjType, PropsToRemoveType> {
+  const result = { ...obj };
+  
+  propsToRemove.forEach(prop => {
+    delete result[prop];
+  });
+
+  return result;
+}

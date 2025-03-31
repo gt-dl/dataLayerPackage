@@ -1,14 +1,18 @@
 import { ProductId } from './types';
-import { getAllTracking, setCookie } from './utils';
+import { getAllTracking, removeProps, setCookie } from './utils';
 
 /**
  * Remove dados de tracking de algum produto
  *
- * @param productId ID do produto que se quer remover os dados. Se não for passado, removerá os dados temporários
+ * @param productIds Lista de ID dos produtos que se quer remover os dados separados por vírgula. Não informar em formato de array
  */
-export function removeTrackingStorage(productId: ProductId = 'temp') {
+export function removeTrackingStorage(...productIds: ProductId[]) {
   const currentTracking = getAllTracking();
-  const { [productId]: _, ...newTracking } = currentTracking;
+
+  const newTracking = removeProps(
+    currentTracking,
+    productIds
+  )
 
   setCookie('tracking-storage', JSON.stringify(newTracking));
 }

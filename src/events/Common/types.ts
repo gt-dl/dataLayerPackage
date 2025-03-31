@@ -1,4 +1,4 @@
-import { TrackingProps } from "../../hooks/useTrackingStorage/types";
+import { TrackingProps } from '../../hooks/useTrackingStorage/types';
 
 export type EventTypes =
   | 'filter'
@@ -35,18 +35,12 @@ export type EventTypes =
   | 'add_payment_info';
 
 export type DataLayerEventObject = {
-  event: EventTypes
+  event: EventTypes;
 };
 
 export type CurrencyName = 'BRL';
 export type ItemCategoryName = 'Coleção' | 'Sale';
-export type CreativeName =
-  | 'carrossel'
-  | 'reloginho'
-  | 'stories'
-  | 'banner'
-  | 'lista'
-  | 'grid';
+export type CreativeName = 'banner' | 'carrossel' | 'stories' | 'reloginho';
 
 export type ShippingTierName =
   | 'Receba em casa: normal'
@@ -55,20 +49,20 @@ export type ShippingTierName =
   | 'Retire na loja: rápida';
 
 export type Item = {
-  item_id: string
-  item_sku: string
-  item_ref: string
-  item_name: string
-  item_brand: string
-  item_category: ItemCategoryName
-  item_category2: string
-  item_variant: string
-  item_variant2: string
-  item_currency: CurrencyName
-  item_shipping_tier?: ShippingTierName
-  price: number
-  discount: number
-  quantity: number
+  item_id: string;
+  item_sku: string;
+  item_ref: string;
+  item_name: string;
+  item_brand: string;
+  item_category: ItemCategoryName;
+  item_category2: string;
+  item_variant: string;
+  item_variant2: string;
+  item_currency: CurrencyName;
+  item_shipping_tier?: ShippingTierName;
+  price: number;
+  discount: number;
+  quantity: number;
 } & TrackingProps;
 
 export type PaymentType =
