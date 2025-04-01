@@ -13,7 +13,7 @@ export function getAllTracking() {
       return acc;
     }, {});
 
-  const tracking: TrackingProps = JSON.parse(cookies.tracking);
+  const tracking: TrackingProps = JSON.parse(cookies.tracking || '{}');
   return tracking;
 }
 
