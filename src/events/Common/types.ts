@@ -32,7 +32,8 @@ export type EventTypes =
   | 'remove_from_cart'
   | 'payment_method_added'
   | 'video_loop_start'
-  | 'add_payment_info';
+  | 'add_payment_info'
+  | 'auth_action';
 
 export type DataLayerEventObject = {
   event: EventTypes;
