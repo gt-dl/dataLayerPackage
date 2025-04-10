@@ -18,3 +18,14 @@ export type ListTrackingProps = {
 
 export type TrackingProductProps = BannerTrackingProps & ListTrackingProps;
 export type TrackingProps = Record<ProductId, TrackingProductProps>;
+
+export type UseTrackingProps = {
+  get: (productId?: ProductId) => TrackingProductProps;
+  set: <T extends TrackingType>(
+    type: T,
+    trackingData: T extends 'banner' ? BannerTrackingProps : ListTrackingProps,
+    productId?: ProductId
+  ) => void;
+  remove: (...productIds: ProductId[]) => void;
+  clear: () => void;
+}
