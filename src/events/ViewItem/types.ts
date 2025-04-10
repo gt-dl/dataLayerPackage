@@ -4,7 +4,7 @@ export type ViewItemProps = {
   ecommerce: {
     currency: CurrencyName
     value: number
-    grade_disponivel: string
+    available_grid: string
     items: Item[]
   }
 }

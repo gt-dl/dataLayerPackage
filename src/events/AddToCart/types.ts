@@ -4,7 +4,7 @@ export type AddToCartProps = {
   ecommerce: {
     currency: CurrencyName
     value: number
-    available_grid?: string
+    available_grid: string
     items: Item[]
   }
 }
