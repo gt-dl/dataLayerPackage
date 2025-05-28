@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from '../Common';
 import { ViewCartProps } from './types';
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param ecommerce Objeto com os dados do carrinho
@@ -35,7 +36,7 @@ import { ViewCartProps } from './types';
 
 export function sendViewCartEventToDataLayer(ecommerce: ViewCartProps) {
   sendEventToDataLayer<ViewCartProps>({
-    event: 'view_cart',
+    event: `${PREFIX_}view_cart`,
     ...ecommerce,
   });
 }

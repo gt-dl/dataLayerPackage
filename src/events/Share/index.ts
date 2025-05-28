@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { ShareProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * O evento de share possui um parâmetro chamado "local". Ele representa a página onde o usuário está ao compartilhar o produto. No momento isso só dispara na PDP, então o parâmetro é opcional com valor default "PDP"
@@ -10,7 +11,7 @@ import { ShareProps } from "./types";
  */
 export function sendShareEventToDataLayer(shareProps: ShareProps) {
     sendEventToDataLayer<ShareProps>({
-        event: 'share',
+        event: `${PREFIX_}share`,
         ...shareProps
     })
 }

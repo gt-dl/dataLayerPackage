@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from '../Common';
 import type { ViewPromotionProps } from './types';
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param ecommerce Objecto com informações da promoção
@@ -12,7 +13,7 @@ export function sendViewPromotionEventToDataLayer(
   ecommerce: ViewPromotionProps
 ) {
   sendEventToDataLayer<ViewPromotionProps>({
-    event: 'view_promotion',
+    event: `${PREFIX_}view_promotion`,
     ...ecommerce,
   });
 }

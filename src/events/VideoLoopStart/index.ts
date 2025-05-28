@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { VideoLoopStartProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param videoLoopStartProps Objeto com informações da página
@@ -9,7 +10,7 @@ export function sendVideoLoopStartEventToDataLayer(
   videoLoopStartProps: VideoLoopStartProps
 ) {
   sendEventToDataLayer<VideoLoopStartProps>({
-    event: 'video_loop_start',
+    event: `${PREFIX_}video_loop_start`,
     ...videoLoopStartProps
   })
 }

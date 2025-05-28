@@ -1,9 +1,10 @@
 import { sendEventToDataLayer } from "../Common";
 import { SelectItemProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 export function sendSelectItemEventToDataLayer(ecommerce: SelectItemProps) {
   sendEventToDataLayer<SelectItemProps>({
-    event: 'select_item',
+    event: `${PREFIX_}select_item`,
     ...ecommerce
   })
 }

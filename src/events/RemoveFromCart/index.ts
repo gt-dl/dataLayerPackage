@@ -1,9 +1,10 @@
 import { sendEventToDataLayer } from "../Common";
 import { RemoveFromCartProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 export function sendRemoveFromCartEventToDataLayer(ecommerce: RemoveFromCartProps) {
   sendEventToDataLayer<RemoveFromCartProps>({
-    event: 'remove_from_cart',
+    event: `${PREFIX_}remove_from_cart`,
     ...ecommerce
   })
 }

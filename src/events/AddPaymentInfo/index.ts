@@ -1,5 +1,7 @@
 import { sendEventToDataLayer } from '../Common';
 import { AddPaymentInfoProps } from './types';
+import { PREFIX_ } from '../../constants';
+import { DataLayerEventObject } from "../Common/types";
 
 /**
  * @param ecommerce Objeto com dados do evento
@@ -39,7 +41,11 @@ export function sendAddPaymentInfoEventToDataLayer(
   ecommerce: AddPaymentInfoProps
 ) {
   sendEventToDataLayer<AddPaymentInfoProps>({
-    event: 'add_payment_info',
+    event: `${PREFIX_}add_payment_info`,
     ...ecommerce,
   });
 }
+
+export const addPaymentInfo = (): DataLayerEventObject => ({
+  event: `${PREFIX_}add_payment_info`,
+});

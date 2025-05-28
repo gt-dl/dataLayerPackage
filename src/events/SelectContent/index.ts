@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { SelectContentEventProps, SelectContentParamsProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param selectContentProps Objeto com as propriedades do evento
@@ -18,7 +19,7 @@ export function sendSelectContentEventToDataLayer(
     .concat(':' + componentName)
 
   sendEventToDataLayer<SelectContentEventProps>({
-    event: 'select_content',
+    event: `${PREFIX_}select_content`,
     content_type: contentType
   })
 }

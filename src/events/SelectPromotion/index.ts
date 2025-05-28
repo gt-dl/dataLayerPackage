@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from '../Common';
 import type { SelectPromotionProps } from './types';
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param ecommerce Objecto com informações da promoção
@@ -12,7 +13,7 @@ export function sendSelectPromotionEventToDataLayer(
   ecommerce: SelectPromotionProps
 ) {
   sendEventToDataLayer<SelectPromotionProps>({
-    event: 'select_promotion',
+    event: `${PREFIX_}select_promotion`,
     ...ecommerce,
   });
 }
