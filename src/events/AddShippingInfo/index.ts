@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from '../Common';
 import type { AddShippingInfoProps } from './types';
+import { PREFIX_ } from "../../constants";
 
 /**
  * Colocar explicação dos params
@@ -40,7 +41,7 @@ export function sendAddShippingInfoToDataLayer(
   ecommerce: AddShippingInfoProps
 ) {
   sendEventToDataLayer<AddShippingInfoProps>({
-    event: 'add_shipping_info',
+    event: `${PREFIX_}add_shipping_info`,
     ...ecommerce,
   });
 }

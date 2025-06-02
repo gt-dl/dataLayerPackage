@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import type { ViewSearchResultsProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param searchProps Objeto com informações da página
@@ -8,7 +9,7 @@ import type { ViewSearchResultsProps } from "./types";
  */
 export function sendViewSearchResultsEventToDataLayer(searchProps: ViewSearchResultsProps) {
   sendEventToDataLayer<ViewSearchResultsProps>({
-    event: 'view_search_results',
+    event: `${PREFIX_}view_search_results`,
     ...searchProps
   })
 }

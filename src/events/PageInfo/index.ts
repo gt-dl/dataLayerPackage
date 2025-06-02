@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { PageInfoProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param pageInfo Objeto com informações da página
@@ -10,7 +11,7 @@ import { PageInfoProps } from "./types";
  */
 export function sendPageInfoEventToDataLayer(pageInfo: PageInfoProps) {
   sendEventToDataLayer<PageInfoProps>({
-    event: 'page_info',
+    event: `${PREFIX_}page_info`,
     ...pageInfo
   })
 }

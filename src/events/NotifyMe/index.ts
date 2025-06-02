@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { NotifyMeProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param notifyMeProps Objeto com as propriedade do evento
@@ -9,7 +10,7 @@ import { NotifyMeProps } from "./types";
  */
 export function sendNotifyMeEventToDataLayer(notifyMeProps: NotifyMeProps) {
     sendEventToDataLayer<NotifyMeProps>({
-        event: 'notify_me',
+        event: `${PREFIX_}notify_me`,
         ...notifyMeProps
     })
 }

@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { FilterProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param filterProps - Objeto com as propriedades do filtro
@@ -14,7 +15,7 @@ import { FilterProps } from "./types";
 
 export function sendFilterEventToDataLayer(filterProps: FilterProps) {
     sendEventToDataLayer<FilterProps>({
-        event: 'filter',
+        event: `${PREFIX_}filter`,
         ...filterProps
     })
 }

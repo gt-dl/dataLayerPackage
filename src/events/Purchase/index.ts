@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import type { PurchaseProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param ecommerce Objeto com informações da compra
@@ -38,7 +39,7 @@ import type { PurchaseProps } from "./types";
  */
 export function sendPurchaseEventToDataLayer(ecommerce: PurchaseProps) {
   sendEventToDataLayer<PurchaseProps>({
-    event: 'purchase',
+    event: `${PREFIX_}purchase`,
     ...ecommerce
   })
 }

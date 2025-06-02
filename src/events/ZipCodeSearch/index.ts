@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import type { ZipCodeSearchProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param shippings Array de objeto contendo informação de cada shipping
@@ -13,7 +14,7 @@ export function sendZipCodeSearchEventToDataLayer(
     shippings: ZipCodeSearchProps
 ) {
     sendEventToDataLayer<ZipCodeSearchProps>({
-        event: 'search_zipcode',
+        event: `${PREFIX_}search_zipcode`,
         ...shippings
     })
 }

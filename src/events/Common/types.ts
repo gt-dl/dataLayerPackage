@@ -1,39 +1,40 @@
 import { TrackingProductProps } from '../../hooks/useTracking/types';
+import { PREFIX_ } from '../../constants'
 
 export type EventTypes =
-  | 'filter'
-  | 'pageview'
-  | 'click'
-  | 'purchase'
-  | 'sign_up'
-  | 'login'
-  | 'search_zipcode'
-  | 'notify_me'
-  | 'generate_lead'
-  | 'share'
-  | 'select_content'
-  | 'view_item'
-  | 'view_cart'
-  | 'page_info'
-  | 'view_item_list'
-  | 'user_info'
-  | 'view_promotion'
-  | 'view_search_results'
-  | `error_${string}`
-  | 'select_item'
-  | 'select_promotion'
-  | 'add_coupon'
-  | 'add_to_cart'
-  | 'add_to_wishlist'
-  | 'begin_checkout'
-  | 'cancel_order'
-  | 'add_shipping_info'
-  | 'remove_cupom'
-  | 'remove_from_cart'
-  | 'payment_method_added'
-  | 'video_loop_start'
-  | 'add_payment_info'
-  | 'auth_action';
+  | `${typeof PREFIX_}filter`
+  | `${typeof PREFIX_}pageview`
+  | `${typeof PREFIX_}click`
+  | `${typeof PREFIX_}purchase`
+  | `${typeof PREFIX_}sign_up`
+  | `${typeof PREFIX_}login`
+  | `${typeof PREFIX_}search_zipcode`
+  | `${typeof PREFIX_}notify_me`
+  | `${typeof PREFIX_}generate_lead`
+  | `${typeof PREFIX_}share`
+  | `${typeof PREFIX_}select_content`
+  | `${typeof PREFIX_}view_item`
+  | `${typeof PREFIX_}view_cart`
+  | `${typeof PREFIX_}page_info`
+  | `${typeof PREFIX_}view_item_list`
+  | `${typeof PREFIX_}user_info`
+  | `${typeof PREFIX_}view_promotion`
+  | `${typeof PREFIX_}view_search_results`
+  | `${typeof PREFIX_}error_${string}`
+  | `${typeof PREFIX_}select_item`
+  | `${typeof PREFIX_}select_promotion`
+  | `${typeof PREFIX_}add_coupon`
+  | `${typeof PREFIX_}add_to_cart`
+  | `${typeof PREFIX_}add_to_wishlist`
+  | `${typeof PREFIX_}begin_checkout`
+  | `${typeof PREFIX_}cancel_order`
+  | `${typeof PREFIX_}add_shipping_info`
+  | `${typeof PREFIX_}remove_cupom`
+  | `${typeof PREFIX_}remove_from_cart`
+  | `${typeof PREFIX_}payment_method_added`
+  | `${typeof PREFIX_}video_loop_start`
+  | `${typeof PREFIX_}add_payment_info`
+  | `${typeof PREFIX_}auth_action`
 
 export type DataLayerEventObject = {
   event: EventTypes;

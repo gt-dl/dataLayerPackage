@@ -1,5 +1,6 @@
 import { sendEventToDataLayer } from "../Common";
 import { CancelOrderProps } from "./types";
+import { PREFIX_ } from "../../constants";
 
 /**
  * @param cancelOrder Objeto com informações do evento
@@ -7,7 +8,7 @@ import { CancelOrderProps } from "./types";
  */
 export function sendCancelOrderEventToDataLayer(cancelOrder: CancelOrderProps) {
   sendEventToDataLayer<CancelOrderProps>({
-    event: 'cancel_order',
+    event: `${PREFIX_}cancel_order`,
     ...cancelOrder
   })
 }
